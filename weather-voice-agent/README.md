@@ -142,56 +142,28 @@ Once running, you can ask questions like:
 
 The agent will respond conversationally with current temperature, conditions, humidity, and other relevant details.
 
-## Running the React Frontend
+## Testing the Agent
 
-A modern React-based frontend is available to interact with the voice agent through your browser.
+Since this is a backend voice agent, you need a client to connect to it. The easiest way is to use the **LiveKit Agents Playground**.
 
-### 1. Install Frontend Dependencies
-```bash
-cd frontend
-npm install
-```
+1.  **Start the Agent**:
+    ```bash
+    python src/weather_agent.py dev
+    ```
+    You should see: `Agent connected to room: <room-name>`
 
-### 2. Configure Environment Variables
-Copy the example environment file and add your LiveKit credentials:
-```bash
-cp .env.example .env
-```
+2.  **Open LiveKit Playground**:
+    - Go to [https://agents-playground.livekit.io/](https://agents-playground.livekit.io/)
+    - Connect using your LiveKit URL and Token (or generate a token using your API Key/Secret).
+    - Ensure you connect to the same room the agent is in.
 
-Edit `.env` with your actual LiveKit credentials:
-- **VITE_LIVEKIT_URL**: Your LiveKit server WebSocket URL
-- **VITE_LIVEKIT_TOKEN**: A valid JWT token for room access
-
-### 3. Start the Agent Backend
-In a separate terminal, start the weather agent:
-```bash
-python -m src.weather_agent console
-```
-
-### 4. Start the React Development Server
-```bash
-npm run dev
-```
-
-### 5. Open Your Browser
-Navigate to the URL shown in the terminal (usually `http://localhost:5173`)
-
-### 6. Connect and Chat
-1. Click "Connect to Agent"
-2. Allow microphone access when prompted
-3. Start speaking - ask about weather in any city!
-4. The agent will respond with voice
-
-### Frontend Features
-- **Real-time Connection Status**: Visual feedback on connection state
-- **Participant Display**: Shows both you and the weather agent
-- **Responsive Design**: Works on desktop and mobile devices
-- **Modern UI**: Clean, gradient-based interface with glassmorphism effects
+3.  **Interact**:
+    - Click "Connect"
+    - Speak to the agent!
 
 ## Limitations & Future Work
 
 - **Current Weather Only**: Only provides current weather data, no forecasts
-- **Frontend Setup Required**: Requires manual configuration of LiveKit credentials
 - **Language Support**: Primarily English, limited multilingual support
 - **Error Handling**: Basic error handling for common scenarios
 - **Persistence**: No conversation history or user preferences
@@ -203,4 +175,3 @@ Potential enhancements:
 - Weather alerts and notifications
 - Historical weather data
 - Voice activity detection improvements
-- Simplified frontend setup with environment variables
