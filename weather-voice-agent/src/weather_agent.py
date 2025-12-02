@@ -50,9 +50,9 @@ class WeatherAgent(Agent):
         # Initialize with system instructions for Gemini AI
         super().__init__(
             instructions=(
-                "You are a friendly weather assistant. For any weather question, you MUST use the 'lookup_weather' tool. "
-                "You can provide current weather AND forecasts for the next few days. "
-                "You respond conversationally, mentioning city name, temperature, conditions, and any relevant details."
+                "You are a weather assistant. For any weather question, you MUST use the 'lookup_weather' tool. "
+                "For current weather queries, respond ONLY with the temperature and weather condition (e.g., 'It is 25 degrees and sunny'). Keep it very brief. "
+                "However, if the user explicitly asks for a forecast or prediction for future days, you can provide those details."
             ),
         )
 
